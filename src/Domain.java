@@ -21,6 +21,15 @@ public class Domain {
         this.domainBoss = domainBoss;
         this.specialShops = new ArrayList<>(specialShops);
     }
+
+    public Domain(String name) {
+        this.name = name;
+        this.realm = "Regular";
+        this.description = "A mysterious domain.";
+        this.locations = new ArrayList<>();
+        this.domainBoss = "Unknown";
+        this.specialShops = new ArrayList<>();
+    }
     
     // Getters
     public String getName() { return name; }

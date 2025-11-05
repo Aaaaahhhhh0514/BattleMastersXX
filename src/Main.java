@@ -2,20 +2,39 @@
 // MAIN GAME CLASS - Should be in Main.java
 // Contains the main game loop and initialization
 // ================================================================================
+import Enemy.Enemy;
+import Enemy.EnemyFactory;
+import Item.Item;
+import Item.ItemFactory;
+import Player.Player;
+
 import java.util.*;
-public class BattleMasterXX {
+public class Main {
     private static Scanner scanner = new Scanner(System.in);
     private static Player player;
     private static GameWorld gameWorld;
     private static TimeWeatherSystem timeWeather;
     private static CombatSystem combatSystem;
-    
+
     public static void main(String[] args) {
-        System.out.println("=== WELCOME TO BATTLEMASTERXX JAVA EDITION ===");
-        System.out.println("An epic RPG adventure with 28 domains, advanced systems, and endless content!");
-        
-        initializeGame();
-        gameLoop();
+        Player p = new Player("Devin");
+        p.faction = new Faction("Knights of the Phoenix");
+        p.weapon = Map.of("power", 12);
+        p.armor = Map.of("defense", 8);
+        p.startQuest();
+        p.gainExp(1200);
+        p.addCompanion(new Companion("Luna"));
+        Map<String, Object> questData = new HashMap<>();
+        questData.put("type", "find_item");
+        questData.put("target", "Ancient Coin");
+        questData.put("quantity", 2);
+        questData.put("reward", Map.of("gold", 100, "exp", 200));
+        questData.put("description", "Find two Ancient Coins.");
+        p.acceptNpcQuest("Merchant", questData);
+        p.inventory.add(Map.of("name", "Ancient Coin"));
+        p.checkNpcQuestItems();
+        p.inventory.add(Map.of("name", "Ancient Coin"));
+        p.checkNpcQuestItems();
     }
     
     /**
@@ -112,7 +131,7 @@ public class BattleMasterXX {
     private static void displayMainMenu() {
         System.out.println("\n┌─── MAIN MENU ───────────────────────────────────────────────┐");
         System.out.println("│ 1.Move/Travel    2.Explore Area     3.Inventory    4.Equipment │");
-        System.out.println("│ 5.Use Item       6.Magic/Spells     7.Companions   8.Quests     │");
+        System.out.println("│ 5.Use Item.Item       6.Magic/Spells     7.Companions   8.Quests     │");
         System.out.println("│ 9.Talk to NPCs   10.Shop           11.Faction     12.Prestige   │");
         System.out.println("│ 13.Skills        14.Achievements   15.Crafting    16.Map        │");
         System.out.println("│ 17.Statistics    18.Settings       19.Save/Load   20.Help       │");

@@ -3,6 +3,14 @@
 // Contains all 28 domains, locations, and world management
 // ================================================================================
 
+import Enemy.Enemy;
+import Enemy.EnemyFactory;
+import Item.Item;
+import Item.ItemFactory;
+import Item.Material;
+import Player.Player;
+import StatusEffect.StatusEffect;
+
 import java.util.*;
 /**
  * Complete Game World with 28 domains and advanced location system

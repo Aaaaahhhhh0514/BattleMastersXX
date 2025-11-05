@@ -1,3 +1,5 @@
+package Player;
+
 import java.util.*;
 
 public class Player {
@@ -221,7 +223,7 @@ public class Player {
         List<Map<String, Object>> pool = List.of(
             Map.of("name", "Small Health Potion", "type", "consumable", "heal", 50),
             Map.of("name", "Iron Sword", "type", "weapon", "power", 5),
-            Map.of("name", "Leather Armor", "type", "armor", "defense", 3),
+            Map.of("name", "Leather Item.Armor", "type", "armor", "defense", 3),
             Map.of("name", "Mana Elixir", "type", "consumable", "mana", 30)
         );
         return pool.get(random.nextInt(pool.size()));
@@ -326,25 +328,4 @@ public class Player {
         System.out.println(companion.getName() + " has joined you.");
         return true;
     }
-}
-
-public static void main(String[] args) {
-    Player p = new Player("Devin");
-    p.faction = new Faction("Knights of the Phoenix");
-    p.weapon = Map.of("power", 12);
-    p.armor = Map.of("defense", 8);
-    p.startQuest();
-    p.gainExp(1200);
-    p.addCompanion(new Companion("Luna"));
-    Map<String, Object> questData = new HashMap<>();
-    questData.put("type", "find_item");
-    questData.put("target", "Ancient Coin");
-    questData.put("quantity", 2);
-    questData.put("reward", Map.of("gold", 100, "exp", 200));
-    questData.put("description", "Find two Ancient Coins.");
-    p.acceptNpcQuest("Merchant", questData);
-    p.inventory.add(Map.of("name", "Ancient Coin"));
-    p.checkNpcQuestItems();
-    p.inventory.add(Map.of("name", "Ancient Coin"));
-    p.checkNpcQuestItems();
 }
