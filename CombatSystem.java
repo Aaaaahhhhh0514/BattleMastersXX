@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * Complete combat system with advanced mechanics
  */
-class CombatSystem {
+public class CombatSystem {
     private static Scanner scanner = new Scanner(System.in);
     
     /**

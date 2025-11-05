@@ -6,7 +6,8 @@
 /**
  * Base class for all status effects
  */
-abstract class StatusEffect {
+
+public abstract class StatusEffect {
     protected String name;
     protected int duration;
     protected int strength;

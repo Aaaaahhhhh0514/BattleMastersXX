@@ -1,62 +1,6 @@
 import java.util.*;
 
-public static class Location {
-    private final String name;
-    public Location(String _name) { this.name = _name; }
-    public String getName() { return name; }
-}
-
-public static class Domain {
-    private final String name;
-    public Domain(String _name) { this.name = _name; }
-    public String getName() { return name; }
-}
-
-public static class Weapon {
-    private final String name;
-    public Weapon() { this.name = ""; }
-    public Weapon(String name) { this.name = name; }
-    public String getName() { return name; }
-}
-
-public static class Armor {
-    private final String name;
-    public Armor() { this.name = ""; }
-    public Armor(String name) { this.name = name; }
-    public String getName() { return name; }
-}
-
-public static class Companion {
-    private final String name;
-    public Companion(String _name) { this.name = _name; }
-    public String getName() { return name; }
-}
-
-public static class Horse {
-    private final String name;
-    public Horse(String _name) { this.name = _name; }
-    public String getName() { return name; }
-}
-
-public static class Faction {
-    private final String name;
-    public Faction(String _name) { this.name = _name; }
-    public String getName() { return name; }
-}
-
-public static class StatusEffects {
-    private final String name;
-    public StatusEffects(String _name) { this.name = _name; }
-    public String getName() { return name; }
-}
-
-public static class StartQuest {
-    private final String name;
-    public StartQuest(String _name) { this.name = _name; }
-    public String getName() { return name; }
-}
-
-public static class Player {
+public class Player {
     Map<String, Object> currentQuest;
     List<Map<String, Object>> npcQuests;
     String name;
@@ -169,6 +113,14 @@ public static class Player {
 
     public boolean canPrestige() {
         return level >= 50;
+    }
+
+    public void addStatusEffect(String regeneration, RegenerationEffect regenerationEffect) {
+        int x=0;
+    }
+
+    public void heal(int healAmount) {
+        int x=0;
     }
 
     public boolean doPrestige() {
