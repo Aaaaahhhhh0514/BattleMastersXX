@@ -3,6 +3,8 @@ package Enemy;// ===============================================================
 // Complete enemy system with AI behavior and advanced mechanics
 // ================================================================================
 import Item.Item;
+import Player.Player;
+import StatusEffect.StatusEffect;
 
 import java.util.*;
 /**

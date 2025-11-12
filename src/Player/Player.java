@@ -1,6 +1,9 @@
 package Player;
 
+import PlaceLocation.Domain;
 import PlaceLocation.Location;
+import StatusEffect.StatusEffect;
+import StatusEffect.RegenerationEffect;
 
 import java.util.*;
 
@@ -26,7 +29,7 @@ public class Player {
     Horse horse;
     boolean mythicMode;
     public Faction faction;
-    List<StatusEffects> statusEffects;
+    List<StatusEffect> statusEffects;
     StartQuest startQuest;
     final List<Map<String, Object>> enemyTypes;
     final Random random = new Random();
@@ -333,5 +336,9 @@ public class Player {
 
     public Location getLocation() {
         return location;
+    }
+
+    public Object getHp() {
+        return null;
     }
 }
