@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Enhanced Enemy.Enemy Factory with domain-specific creation
  */
-class EnemyFactory {
+public class EnemyFactory {
     private static Map<String, List<EnemyTemplate>> domainEnemies;
     private static boolean initialized = false;
 
@@ -22,24 +22,24 @@ class EnemyFactory {
     }
 
     private static void setupDomainEnemies() {
-        // Central Domain - Beginner enemies
-        domainEnemies.put("Central Domain", List.of(
+        // Central PlaceLocation.Domain - Beginner enemies
+        domainEnemies.put("Central PlaceLocation.Domain", List.of(
                 new EnemyTemplate("Goblin Scout", 30, 8, 25, 15, "physical", "Aggressive"),
                 new EnemyTemplate("Wild Boar", 45, 12, 35, 20, "physical", "Berserker"),
                 new EnemyTemplate("Bandit", 40, 10, 30, 25, "physical", "Tactical"),
                 new EnemyTemplate("Town Guard", 60, 15, 50, 35, "physical", "Defensive") // Boss
         ));
 
-        // Fire Domain - Fire enemies
-        domainEnemies.put("Fire Domain", List.of(
+        // Fire PlaceLocation.Domain - Fire enemies
+        domainEnemies.put("Fire PlaceLocation.Domain", List.of(
                 new EnemyTemplate("Fire Imp", 50, 18, 60, 40, "fire", "Aggressive"),
                 new EnemyTemplate("Lava Slug", 80, 22, 80, 50, "fire", "Defensive"),
                 new EnemyTemplate("Flame Spirit", 70, 25, 90, 60, "fire", "Tactical"),
                 new EnemyTemplate("Fire Dragon", 300, 80, 500, 300, "fire", "Tactical") // Boss
         ));
 
-        // Ice Domain - Ice enemies
-        domainEnemies.put("Ice Domain", List.of(
+        // Ice PlaceLocation.Domain - Ice enemies
+        domainEnemies.put("Ice PlaceLocation.Domain", List.of(
                 new EnemyTemplate("Frost Wolf", 60, 20, 70, 45, "ice", "Aggressive"),
                 new EnemyTemplate("Ice Golem", 120, 25, 100, 65, "ice", "Defensive"),
                 new EnemyTemplate("Blizzard Wraith", 80, 28, 110, 70, "ice", "Tactical"),
@@ -47,16 +47,16 @@ class EnemyFactory {
         ));
 
         // Add more domains...
-        // Shadow Domain
-        domainEnemies.put("Shadow Domain", List.of(
+        // Shadow PlaceLocation.Domain
+        domainEnemies.put("Shadow PlaceLocation.Domain", List.of(
                 new EnemyTemplate("Shadow Lurker", 45, 22, 65, 50, "dark", "Tactical"),
                 new EnemyTemplate("Void Spawn", 70, 28, 85, 60, "dark", "Aggressive"),
                 new EnemyTemplate("Dark Wraith", 90, 32, 120, 80, "dark", "Tactical"),
                 new EnemyTemplate("Shadow Lord", 500, 100, 750, 400, "dark", "Tactical") // Boss
         ));
 
-        // Divine Domain - Mythic enemies
-        domainEnemies.put("Divine Domain", List.of(
+        // Divine PlaceLocation.Domain - Mythic enemies
+        domainEnemies.put("Divine PlaceLocation.Domain", List.of(
                 new EnemyTemplate("Angel Guardian", 200, 60, 300, 200, "light", "Defensive"),
                 new EnemyTemplate("Seraph Warrior", 250, 75, 400, 250, "light", "Tactical"),
                 new EnemyTemplate("Divine Avatar", 350, 90, 600, 350, "light", "Tactical"),
@@ -70,7 +70,7 @@ class EnemyFactory {
     public static Enemy createRandomEnemy(int playerLevel, String domain) {
         if (!initialized) initialize();
 
-        List<EnemyTemplate> templates = domainEnemies.getOrDefault(domain, domainEnemies.get("Central Domain"));
+        List<EnemyTemplate> templates = domainEnemies.getOrDefault(domain, domainEnemies.get("Central PlaceLocation.Domain"));
         EnemyTemplate template = templates.get(ThreadLocalRandom.current().nextInt(templates.size()));
 
         return createEnemyFromTemplate(template, playerLevel);
@@ -82,7 +82,7 @@ class EnemyFactory {
     public static Enemy createDomainBoss(String domain, int playerLevel) {
         if (!initialized) initialize();
 
-        List<EnemyTemplate> templates = domainEnemies.getOrDefault(domain, domainEnemies.get("Central Domain"));
+        List<EnemyTemplate> templates = domainEnemies.getOrDefault(domain, domainEnemies.get("Central PlaceLocation.Domain"));
         EnemyTemplate bossTemplate = templates.get(templates.size() - 1); // Last one is always boss
 
         Enemy boss = createEnemyFromTemplate(bossTemplate, playerLevel);

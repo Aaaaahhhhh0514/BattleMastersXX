@@ -1,11 +1,14 @@
-package Item;// ================================================================================
+package Item;
+
+// ================================================================================
 // ITEM FACTORY - Should be in Item.ItemFactory.java
 // Creates all items with proper configuration
 // ================================================================================
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
-class ItemFactory {
+
+public class ItemFactory {
     private static Map<String, String[]> weaponsByElement;
     private static Map<String, String[]> armorByType;
     private static boolean initialized = false;

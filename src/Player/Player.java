@@ -1,5 +1,7 @@
 package Player;
 
+import PlaceLocation.Location;
+
 import java.util.*;
 
 public class Player {
@@ -23,7 +25,7 @@ public class Player {
     final int MAX_COMPANIONS = 3;
     Horse horse;
     boolean mythicMode;
-    Faction faction;
+    public Faction faction;
     List<StatusEffects> statusEffects;
     StartQuest startQuest;
     final List<Map<String, Object>> enemyTypes;
@@ -42,7 +44,7 @@ public class Player {
         level = 1;
         prestige = 0;
         location = new Location("Town Square");
-        currentDomain = new Domain("Central Domain");
+        currentDomain = new Domain("Central PlaceLocation.Domain");
         inventory = new ArrayList<>();
         weapon = null;
         armor = null;
@@ -327,5 +329,9 @@ public class Player {
         companions.add(companion);
         System.out.println(companion.getName() + " has joined you.");
         return true;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 }

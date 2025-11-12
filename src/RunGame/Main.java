@@ -1,16 +1,20 @@
-// ================================================================================
-// MAIN GAME CLASS - Should be in Main.java
+package RunGame;// ================================================================================
+// MAIN GAME CLASS - Should be in RunGame.Main.java
 // Contains the main game loop and initialization
 // ================================================================================
 import Enemy.Enemy;
 import Enemy.EnemyFactory;
 import Item.Item;
 import Item.ItemFactory;
+import PlaceLocation.GameWorld;
 import Player.Player;
+import Systems.CombatSystem;
+import Systems.SpellSystem;
+import Systems.TimeWeatherSystem;
 
 import java.util.*;
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
     private static Player player;
     private static GameWorld gameWorld;
     private static TimeWeatherSystem timeWeather;
@@ -56,7 +60,7 @@ public class Main {
         AchievementSystem.initialize();
         PrestigeSystem.initialize();
         
-        System.out.println("\n" + playerName + ", your adventure begins in the Central Domain!");
+        System.out.println("\n" + playerName + ", your adventure begins in the Central PlaceLocation.Domain!");
         System.out.println("Type 'help' at any time to see available commands.");
         
         // Give starting items
@@ -66,7 +70,7 @@ public class Main {
     }
     
     /**
-     * Main game loop - handles all player input and game flow
+     * RunGame.Main game loop - handles all player input and game flow
      */
     private static void gameLoop() {
         while (player.isAlive()) {
@@ -112,7 +116,7 @@ public class Main {
         }
         
         if (player.getFaction() != null) {
-            System.out.printf("║ Faction: %s (Rep: %d)%n", 
+            System.out.printf("║ Player.Faction: %s (Rep: %d)%n",
                 player.getFaction().getName(), player.getReputation());
         }
         
@@ -132,7 +136,7 @@ public class Main {
         System.out.println("\n┌─── MAIN MENU ───────────────────────────────────────────────┐");
         System.out.println("│ 1.Move/Travel    2.Explore Area     3.Inventory    4.Equipment │");
         System.out.println("│ 5.Use Item.Item       6.Magic/Spells     7.Companions   8.Quests     │");
-        System.out.println("│ 9.Talk to NPCs   10.Shop           11.Faction     12.Prestige   │");
+        System.out.println("│ 9.Talk to NPCs   10.Shop           11.Player.Faction     12.Prestige   │");
         System.out.println("│ 13.Skills        14.Achievements   15.Crafting    16.Map        │");
         System.out.println("│ 17.Statistics    18.Settings       19.Save/Load   20.Help       │");
         System.out.println("│ 21.Quit                                                         │");
@@ -190,7 +194,7 @@ public class Main {
             System.out.println("\n*** RANDOM ENCOUNTER ***");
             handleRandomEncounter();
         }
-        // Faction events (3% chance)
+        // Player.Faction events (3% chance)
         else if (eventChance < 0.18 && player.getFaction() != null) {
             player.getFaction().triggerRandomEvent(player);
         }
@@ -326,7 +330,7 @@ public class Main {
     }
     
     private static boolean isInDangerousArea() {
-        return !player.getCurrentDomain().equals("Central Domain") && 
+        return !player.getCurrentDomain().equals("Central PlaceLocation.Domain") &&
                !player.getLocation().contains("Village") && 
                !player.getLocation().contains("Town") &&
                !player.getLocation().contains("Safe");

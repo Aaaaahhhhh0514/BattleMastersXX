@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Enhanced base Item.Item class with comprehensive properties
  */
-abstract class Item {
+public abstract class Item {
     protected String name;
     protected String description;
     protected String type;

@@ -3,7 +3,7 @@ package Item;
 /**
  * Enhanced Item.Material class for crafting
  */
-class Material extends Item {
+public class Material extends Item {
     private String materialType; // Metal, Gem, Organic, Magical
     private int tier; // 1-10, higher tiers for better items
     private boolean isRare;

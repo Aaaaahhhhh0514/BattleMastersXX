@@ -1,6 +1,6 @@
-
+package Systems;
 // ================================================================================
-// SPELL SYSTEM - Should be in SpellSystem.java
+// SPELL SYSTEM - Should be in Systems.SpellSystem.java
 // Complete magic system with multiple schools
 // ================================================================================
 
@@ -275,7 +275,7 @@ class SpellSystem {
                         int magicBonus = player.getSkills().get("Magic") * 2;
                         damage += magicBonus;
 
-                        // Spell power status effect bonus
+                        // Player.Spell power status effect bonus
                         if (player.getStatusEffects().containsKey("spell_power")) {
                             damage = (int)(damage * 1.25);
                         }

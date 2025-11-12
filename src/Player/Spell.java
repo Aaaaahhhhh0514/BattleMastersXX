@@ -1,8 +1,10 @@
+package Player;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Spell class representing individual spells
+ * Player.Spell class representing individual spells
  */
 class Spell {
     private String name;

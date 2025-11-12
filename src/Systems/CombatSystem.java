@@ -1,5 +1,5 @@
-// ================================================================================
-// COMPLETE COMBAT SYSTEM - Should be in CombatSystem.java
+package Systems;// ================================================================================
+// COMPLETE COMBAT SYSTEM - Should be in Systems.CombatSystem.java
 // Advanced turn-based combat with multiple mechanics
 // ================================================================================
 
@@ -111,11 +111,11 @@ public class CombatSystem {
         }
         
         System.out.println("\nChoose your action:");
-        System.out.println("1. Attack        2. Cast Spell    3. Use Item.Item");
+        System.out.println("1. Attack        2. Cast Player.Spell    3. Use Item.Item");
         System.out.println("4. Defend        5. Special       6. Flee");
         
         if (!player.getCompanions().isEmpty()) {
-            System.out.println("7. Companion Command");
+            System.out.println("7. Player.Companion Command");
         }
         
         System.out.print("Action: ");
@@ -321,7 +321,7 @@ public class CombatSystem {
             abilities.add("Perfect Strike");
         }
         
-        // Faction abilities
+        // Player.Faction abilities
         if (player.getFaction() != null) {
             abilities.addAll(player.getFaction().getCombatAbilities());
         }
@@ -386,7 +386,7 @@ public class CombatSystem {
      * Handle companion commands
      */
     private void handleCompanionCommand(Player player, Enemy enemy) {
-        System.out.println("Companion Commands:");
+        System.out.println("Player.Companion Commands:");
         System.out.println("1. Attack    2. Heal    3. Defend    4. Special");
         
         System.out.print("Command: ");
@@ -438,7 +438,7 @@ public class CombatSystem {
         // Execute action
         executeEnemyAction(player, enemy, action);
         
-        // Companion interrupts (chance)
+        // Player.Companion interrupts (chance)
         for (Companion companion : player.getCompanions()) {
             if (ThreadLocalRandom.current().nextDouble() < 0.2) {
                 companion.interruptEnemyAction(player, enemy);
@@ -558,7 +558,7 @@ public class CombatSystem {
             System.out.println("BOSS DEFEATED! Bonus rewards granted!");
         }
         
-        // Faction bonuses
+        // Player.Faction bonuses
         if (player.getFaction() != null) {
             expGained += player.getFaction().getExpBonus();
             goldGained += player.getFaction().getGoldBonus();

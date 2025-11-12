@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * Enhanced Enemy.Enemy class
  */
-class Enemy {
+public class Enemy {
     private String name;
     private int hp, maxHp;
     private int attackPower;

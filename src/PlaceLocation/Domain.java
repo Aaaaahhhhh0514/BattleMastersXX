@@ -1,8 +1,10 @@
+package PlaceLocation;
+
 import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Domain class representing each game area
+ * PlaceLocation.Domain class representing each game area
  */
 public class Domain {
     private String name;
